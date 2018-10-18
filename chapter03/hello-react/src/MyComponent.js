@@ -1,11 +1,11 @@
-// 3.1.2 컴포넌트 초기 코드 작성
+// 3.2.1 JSX 내부에서 props 렌더링
 import React, {Component} from 'react';
 
 class MyComponent extends Component {
     render() {
         return (
             <div>
-                나의 새롭고 멋진 컴포넌트
+                안녕하세요, 제 이름은 {this.props.name} 입니다.
             </div>
         )
     }
