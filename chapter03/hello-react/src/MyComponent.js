@@ -1,4 +1,4 @@
-// 3.2.4 props 검증: propTypes
+// 3.3.1 컴포넌트의 생성자 메서드: counstructor()
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
@@ -12,37 +12,28 @@ class MyComponent extends Component {
         name : PropTypes.string, // name props 타입을 문자열로 설정합니다.
         age: PropTypes.number.isRequired // 필수적으로 존재해야 하며, 숫자입니다.
     }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            number: 0
+        };
+    }
     
     render() {
         return (
             <div>
                 <p>안녕하세요, 제 이름은 {this.props.name} 입니다.</p>
                 <p>저는 {this.props.age} 살 입니다.</p>
+                <p>숫자: {this.state.number}</p>
+                <button onClick={() => {
+                    this.setState({
+                        number: this.state.number + 1
+                    })
+                }}>더하기</button>
             </div>
         )
     }
 }
-
-/*
-MyComponent.propTypes = {
-    name: PropTypes.string, // name props 타입을 문자열로 설정합니다.
-    age: PropTypes.number.isRequired // 필수적으로 존재해야 하며, 숫자입니다.
-}
-
- // 더 많은 propTypes 종류
- - array : 배열
- - bool : 참, 거짓
- - func : 함수
- - number : 숫자
- - object : 객체
- - string : 문자열
- - symbol : ES6 문법의 심벌 객체
- - node, element
- - instanceOf(MyClass)
- - oneOf(['Male', 'Female']), oneOfType([React.PropTypes.string, React.PropTypes.number])
- - arrayOf(React.PropTypes.number), objectOf(React.PropTypes.number)
- - shape({name: React.PropTypes.string, age: React.PropTypes.number})
- - any: 아무 종류
-*/
 
 export default MyComponent;
