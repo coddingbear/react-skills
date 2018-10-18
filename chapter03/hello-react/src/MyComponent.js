@@ -1,9 +1,9 @@
-// 3.3.1 컴포넌트의 생성자 메서드: counstructor()
+// 3.3.5 state 를 constructor에서 꺼내기
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 class MyComponent extends Component {
-    // class 내부에서 transform-class-properties 문법을 사용하여 설정
+
     static defaultProps = {
         name : '기본 이름'
     }
@@ -13,11 +13,8 @@ class MyComponent extends Component {
         age: PropTypes.number.isRequired // 필수적으로 존재해야 하며, 숫자입니다.
     }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            number: 0
-        };
+    state = {
+        number: 0
     }
     
     render() {
