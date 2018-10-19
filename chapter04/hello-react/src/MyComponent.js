@@ -40,7 +40,7 @@ class MyComponent extends Component {
  3. DOM 요소에만 이벤트를 설정할 수 있습니다.
    <MyComponent onClick={doSomething} />
    <div onClick={this.props.onClick}>
-        {/* (....) */}
+        (....)
    </div>
  4. 이벤트 종류
     Clipboard, Form, Composition, Mouse, Keyboard, Selection, Focus, Touch,
