@@ -1,12 +1,12 @@
-// 9.2 Sass 사용하기
+// 9.3 styled-components 사용하기
 import React, { Component } from 'react';
-import Button from './components/Button';
+import StyledButton from './components/StyledButton';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Button>버튼</Button>
+        <StyledButton big>버튼</StyledButton>
       </div>
     )
   }
