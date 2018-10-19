@@ -6,9 +6,10 @@ const cx = classNames.bind(styles);
 
 class App extends Component {
   render() {
+    const isBlue = true;
     return (
-      // 클래스가 여러 개 일 때
-     <div className={cx('box', 'blue')}>
+      // isBlue값이 true일 때만 blue 클래스 적용
+     <div className={cx('box', {blue: isBlue})}>
      
      </div>
     );
