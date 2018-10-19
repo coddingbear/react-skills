@@ -13,6 +13,7 @@ class EventPractice extends Component {
                     name="inputText"
                     placeholder="아무거나 입력해 보세요"
                     // onChange 이벤트 설정
+                    value={this.state.message}
                     onChange = {
                         (e) => { 
                             this.setState({
@@ -21,11 +22,19 @@ class EventPractice extends Component {
                             })
                         }
                     }
-                /> <br/>
+                /> 
                 <input type="text"
                     name="message"
                     value={this.state.message}
                 />
+                <button onClick = {
+                    () => {
+                        alert(this.state.message);
+                        this.setState({
+                            message: ''
+                        });
+                    }
+                }>확인</button>
             </div>
         );
     }
