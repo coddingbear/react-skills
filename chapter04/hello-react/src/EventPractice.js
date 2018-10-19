@@ -7,19 +7,14 @@ class EventPractice extends Component {
         message: ''
     }
 
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleChange(e) {
+    // 4.2.3.2 Property Initializer Syntax를 사용한 메서드 작성
+    handleChange = (e) => {
         this.setState({
             message: e.target.value
         });
     }
 
-    handleClick() {
+    handleClick = () => {
         alert(this.state.message);
         this.setState({
             message: ''
