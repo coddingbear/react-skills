@@ -1,12 +1,5 @@
-// 변수 사용
-$size: 100px;
 
-// 믹스인 사용
-@mixin place-at-center {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+@import './styles/utils.scss';
 
 .box {
   display: inline-block;
