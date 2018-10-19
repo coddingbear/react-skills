@@ -1,5 +1,5 @@
 // 4.2 예제로 이벤트 핸들링 익히기
-// 4.2.4 input 여러 개를 핸들링
+// 4.2.5 onKeyPress 이벤트 헨들링
 import React, {Component} from 'react';
 
 class EventPractice extends Component {
@@ -23,6 +23,12 @@ class EventPractice extends Component {
         });
     }
 
+    handleKeyPress = (e) => {
+        if(e.key === 'Enter') {
+            this.handleClick();
+        }
+    }
+
     render() {
         return (
             <div>
@@ -39,6 +45,7 @@ class EventPractice extends Component {
                     placeholder="아무거나 입력해 보세요"
                     value={this.state.message}
                     onChange={this.handleChange}
+                    onKeyPress={this.handleKeyPress}
                 />
                 <button onClick={this.handleClick}>확인</button>
             </div>
