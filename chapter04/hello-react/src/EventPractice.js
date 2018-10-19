@@ -2,18 +2,29 @@
 import React, {Component} from 'react';
 
 class EventPractice extends Component {
+    state = {
+        message: ''
+    }
     render() {
         return (
             <div>
                 <h1>이벤트 연습</h1>
-                <input
-                    type="text"
-                    name="messag"
+                <input type="text"
+                    name="inputText"
                     placeholder="아무거나 입력해 보세요"
                     // onChange 이벤트 설정
                     onChange = {
-                        (e) => { console.log(e.target.value); }
+                        (e) => { 
+                            this.setState({
+                                // state에 input 값 담기
+                                message: e.target.value
+                            })
+                        }
                     }
+                /> <br/>
+                <input type="text"
+                    name="message"
+                    value={this.state.message}
                 />
             </div>
         );
