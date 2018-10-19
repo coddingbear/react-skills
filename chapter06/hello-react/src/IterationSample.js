@@ -1,16 +1,18 @@
-// 6. 컴포넌트의 반복
+// 6.2 데이터 배열을 컴포넌트 배열로 map 하기
 import React, {Component} from 'react';
 
 class IterationSample extends Component {
-  rander() {
+  render() {
+    const names = ['눈사람', '얼음', '눈', '바람'];
+    const nameList = names.map (
+      (name, index) => (<li key={index}>{name}</li>)
+    );
+
     return (
       <ul>
-        <li>눈사람</li>
-        <li>얼음</li>
-        <li>눈</li>
-        <li>바람</li>
+        {nameList}
       </ul>
-    )
+    );
   }
 }
 
