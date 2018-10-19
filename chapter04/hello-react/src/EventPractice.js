@@ -1,10 +1,31 @@
 // 4.2 예제로 이벤트 핸들링 익히기
+// 4.2.3 임의 메서드 만들기
 import React, {Component} from 'react';
 
 class EventPractice extends Component {
     state = {
         message: ''
     }
+
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleChange(e) {
+        this.setState({
+            message: e.target.value
+        });
+    }
+
+    handleClick() {
+        alert(this.state.message);
+        this.setState({
+            message: ''
+        });
+    }
+
     render() {
         return (
             <div>
@@ -14,27 +35,14 @@ class EventPractice extends Component {
                     placeholder="아무거나 입력해 보세요"
                     // onChange 이벤트 설정
                     value={this.state.message}
-                    onChange = {
-                        (e) => { 
-                            this.setState({
-                                // state에 input 값 담기
-                                message: e.target.value
-                            })
-                        }
-                    }
+                    onChange={this.handleChange}
                 /> 
                 <input type="text"
                     name="message"
                     value={this.state.message}
+                    readOnly={true}
                 />
-                <button onClick = {
-                    () => {
-                        alert(this.state.message);
-                        this.setState({
-                            message: ''
-                        });
-                    }
-                }>확인</button>
+                <button onClick={this.handleClick}>확인</button>
             </div>
         );
     }
