@@ -1,21 +1,19 @@
-// 5.2 ref 사용
-// App 컴포넌트에서 예제 컴포넌트 렌더링
+// 5.3 컴포넌트에 ref 달기
+// 5.3.4 컴포넌트에 ref 달고 내부 메서드 사용하기
 import React, { Component } from 'react';
-import ValidationSample from './ValidationSample';
+import ScrollBox from './ScrollBox';
 
 class App extends Component {
   render() {
     return (
-      <ValidationSample />
+      <div>
+        <ScrollBox ref={(ref) => this.scrollBox=ref}/>
+        <button onClick={() => this.scrollBox.scrollToBottom()}>
+          맨 밑으로
+        </button>
+      </div>
     );
   }
 }
 
 export default App;
-
-/*
-DOM을 꼭 사용해야 하는 상황
-- 특정 input에 포커스 주기
-- 스크롤 박스 조작하기
-- Canvas 요소에 그림 그리기
-*/
