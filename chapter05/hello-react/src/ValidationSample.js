@@ -1,5 +1,4 @@
-// 5.1 ref는 어떤 상황에서 사용해야 할까
-// 예제 컴포넌트 생성
+// 5.2 ref사용
 import React, {Component} from 'react';
 import './ValidationSample.css';
 
@@ -19,12 +18,15 @@ class ValidationSample extends Component {
       clicked: true,
       validated: this.state.password === '0000'
     });
+    this.input.focus();
   }
 
   render() {
     return (
       <div>
         <input type="password"
+          // input에 ref 달기
+          ref={(ref) => this.input=ref }
           value={this.state.password}
           onChange={this.handleChange}
           className={this.state.clicked ? (this.state.validated ? 'success' : 'failure') : ''}
